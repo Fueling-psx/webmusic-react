@@ -1,3 +1,3 @@
-# react-music   
-***  
+# webmusic by react  
+
 react + react-router + webpack     
