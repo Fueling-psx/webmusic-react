@@ -180,10 +180,10 @@
 .icon.play {
     background-position: 0 -96px;
 }
-.icon.repeat-once {
+.icon.repeat-singleCycle {
     background-position: 0 -128px;
 }
-.icon.repeat-cycle {
+.icon.repeat-order {
     background-position: 0 -160px;
 }
 .icon.repeat-random {
