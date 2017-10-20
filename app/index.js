@@ -1,14 +1,24 @@
+import 'react-hot-loader/patch'
 import React from 'react'
 import ReactDOM from 'react-dom'
+
+import { AppContainer } from 'react-hot-loader'
 import Root from './root'
 
-ReactDOM.render(
-	<Root />,
-	document.getElementById('root')
-);
+const render = Component => {
+  	ReactDOM.render(
+    	<AppContainer>
+      		<Component />
+    	</AppContainer>,
+   		document.getElementById('root')
+  	);
+}
 
+render(Root);
+	
 if (module.hot) {
-  module.hot.accept('./root', () => { 
-  	 console.log('Accepting the updated root module!');
-  });
+    module.hot.accept('./root', () => { 
+    	const NextRoot = require('./root').default;
+    	render(NextRoot);
+    });
 }

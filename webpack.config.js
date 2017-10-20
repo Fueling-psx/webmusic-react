@@ -3,14 +3,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	devtool: 'eval-source-map',
-	entry: './app/index.js',
+	devtool:'eval',
+	entry: [
+		'webpack-dev-server/client?http://localhost:3000',
+		'webpack/hot/only-dev-server',
+		'./app/index.js'
+	],
 	output: {
 		path: path.resolve(__dirname, "dist"),
-		filename: "bundle.js",
+		filename: "bundle.js"
 	},
 	devServer: {
-		contentBase: './dist',
+		contentBase: path.resolve(__dirname, 'dist'),
 		hot: true,
 		open: true
 	},
@@ -19,12 +23,14 @@ module.exports = {
 			{
 				test: /(\.jsx|\.js)$/,
 				exclude:/node_modules/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets:["react","es2015"]
-					}
-				}
+				use: [{
+						loader: 'babel-loader',
+						 options: {
+                        	presets: ["es2015", "react"]
+                    	}
+					},{
+						loader: 'react-hot-loader/webpack',
+					}]
 			}, {
 				test: /(\.less|\.css)$/,
 				exclude:/node_modules/,
