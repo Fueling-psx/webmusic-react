@@ -21,6 +21,8 @@ react(v16) + react-router(v4.2) + webpack(v3.6) + pubsub-js(v1.5) + less(v3.0) +
 
 ## 预览
 
+![](https://github.com/Fueling-psx/webmusic-by-react/blob/master/screenshot/1.PNG?raw=true)
+
 
 
 
